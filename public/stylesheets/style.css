@@ -10,6 +10,12 @@ body {
     align-items: center;
 }
 
+.card-container {
+    display: flex;
+    align-items: center;
+}
+
+
 form {
     display: flex;
     flex-direction: column;
