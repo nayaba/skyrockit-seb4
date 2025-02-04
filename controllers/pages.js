@@ -1,5 +1,6 @@
 const home = (req, res) => {
-    res.render('index.ejs', {title: 'My App'})
+    console.log('user in session: ', req.session.user)
+    res.render('index.ejs', {title: 'Skyrockit'})
 }
 
 module.exports = {
