@@ -45,9 +45,22 @@ const show = async (req, res) => {
     }
 }
 
+const deleteApplication = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        currentUser.applications.id(req.params.applicationId).deleteOne()
+        await currentUser.save()
+        res.redirect(`/users/${currentUser._id}/applications`)
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
+}
+
 module.exports = {
     newApplication,
     createApplication,
     index,
     show,
+    deleteApplication,
 }

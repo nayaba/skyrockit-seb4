@@ -61,6 +61,7 @@ app.get('/users/:userId/applications/new', applicationsCtrl.newApplication) // v
 app.post('/users/:userId/applications', applicationsCtrl.createApplication) // posting new application to the database
 app.get('/users/:userId/applications', applicationsCtrl.index) // view all the applications
 app.get('/users/:userId/applications/:applicationId', applicationsCtrl.show) // show details of one application
+app.delete('/users/:userId/applications/:applicationId', applicationsCtrl.deleteApplication)
 
 // app.get('/vip-lounge', isSignedIn, vipCtrl.welcome)
 
