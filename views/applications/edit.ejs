@@ -1,26 +1,26 @@
 <%- include('../partials/head') %>
     <div class="container">
 
-        <h1>Editng <%= application.title %></h1>
-        <form action="/users/<%= user._id %>/applications" method="POST">
+        <h1>Editing <%= application.title %> at <%= application.company %></h1>
+        <form action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT" method="POST">
             <label for="">Company:</label>
-            <input type="text" name="company">
+            <input type="text" name="company" value="<%= application.company %>">
             <label for="">Title:</label>
-            <input type="text" name="title">
+            <input type="text" name="title" value="<%= application.title %>">
             <label for="">Notes:</label>
-            <textarea name="notes" id=""></textarea>
+            <textarea name="notes" id=""><%= application.notes %></textarea>
             <label for="">Posting Link:</label>
-            <input type="text" name="postingLink">
+            <input type="text" name="postingLink" value="<%= application.postingLink %>">
             <label for="">Status:</label>
             <select name="status" id="">
                 <option value="" selected disabled></option>
-                <option value="interested">Interested</option>
-                <option value="applied">Applied</option>
-                <option value="interviewing">Interviewing</option>
-                <option value="rejected">Rejected</option>
-                <option value="accepted">Accepted</option>
+                <option value="interested" <%= application.status === "interested" ? "selected" : '' %>>Interested</option>
+                <option value="applied" <%= application.status === "applied" ? "selected" : '' %>>Applied</option>
+                <option value="interviewing" <%= application.status === "interviewing" ? "selected" : '' %>>Interviewing</option>
+                <option value="rejected" <%= application.status === "rejected" ? "selected" : '' %>>Rejected</option>
+                <option value="accepted" <%= application.status === "accepted" ? "selected" : '' %>>Accepted</option>
             </select>
-            <button type="submit" class="btn btn-primary">Add Application</button>
+            <button type="submit" class="btn btn-primary">Update Application</button>
         </form>
         
     </div>
