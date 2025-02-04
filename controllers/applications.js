@@ -31,8 +31,23 @@ const index = async (req, res) => {
     }
 }
 
+const show = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        const application = currentUser.applications.id(req.params.applicationId)
+        res.render('applications/show.ejs', {
+            title: application.title,
+            application,
+        })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
+}
+
 module.exports = {
     newApplication,
     createApplication,
     index,
+    show,
 }

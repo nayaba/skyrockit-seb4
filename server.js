@@ -60,7 +60,7 @@ app.use(isSignedIn) // anything under here, the user must be signed in
 app.get('/users/:userId/applications/new', applicationsCtrl.newApplication) // view new application form
 app.post('/users/:userId/applications', applicationsCtrl.createApplication) // posting new application to the database
 app.get('/users/:userId/applications', applicationsCtrl.index) // view all the applications
-
+app.get('/users/:userId/applications/:applicationId', applicationsCtrl.show) // show details of one application
 
 // app.get('/vip-lounge', isSignedIn, vipCtrl.welcome)
 
