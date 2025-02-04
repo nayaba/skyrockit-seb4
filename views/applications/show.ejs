@@ -25,7 +25,7 @@
                 <span class="badge bg-success"><%= application.status %></span>
                 <% } %>
 
-                <form action="">
+                <form action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-danger">Delete this application</button>
                 </form>
             </div>

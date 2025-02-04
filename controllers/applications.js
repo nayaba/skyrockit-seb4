@@ -47,6 +47,7 @@ const show = async (req, res) => {
 
 const deleteApplication = async (req, res) => {
     try {
+        console.log('inside delete')
         const currentUser = await User.findById(req.params.userId)
         currentUser.applications.id(req.params.applicationId).deleteOne()
         await currentUser.save()
