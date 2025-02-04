@@ -2,6 +2,12 @@
     <div class="container">
 
         <h1>Your Applications</h1>
-        
+        <ul>
+            <% applications.forEach(application => {  %>
+                <li>
+                    <%= application.title %>
+                </li>
+            <% }) %>
+        </ul>
     </div>
 <%- include('../partials/footer') %>

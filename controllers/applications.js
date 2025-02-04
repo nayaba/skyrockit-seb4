@@ -7,16 +7,28 @@ const newApplication = (req, res) => {
 const createApplication = async (req, res) => {
     // user id = req.params.userId
     // user id = req.session.user._id
-    const currentUser = await User.findById(req.params.userId)
-    currentUser.applications.push(req.body) // pushing the formData into the user model
-    await currentUser.save() // save our edits
-    res.redirect(`/users/${currentUser._id}/applications`)
+    try {  
+        const currentUser = await User.findById(req.params.userId)
+        currentUser.applications.push(req.body) // pushing the formData into the user model
+        await currentUser.save() // save our edits
+        res.redirect(`/users/${currentUser._id}/applications`)
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
 }
 
-const index = (req, res) => {
-    res.render('applications/index.ejs', {
-        title: 'Your Applications'
-    })
+const index = async (req, res) => {
+    try {
+        const currentUser = await User.findById(req.params.userId)
+        res.render('applications/index.ejs', {
+            title: 'Your Applications',
+            applications: currentUser.applications,
+        })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
 }
 
 module.exports = {
