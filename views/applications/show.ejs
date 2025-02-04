@@ -24,10 +24,14 @@
                 <% } else { %>
                 <span class="badge bg-success"><%= application.status %></span>
                 <% } %>
-
+                <div class="d-flex justify-content-between mt-3">
                 <form action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-danger">Delete this application</button>
                 </form>
+                <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">
+                    <button type="submit" class="btn btn-warning">Edit</button>
+                </a>
+                </div>
             </div>
         
     </div>

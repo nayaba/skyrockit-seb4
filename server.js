@@ -63,6 +63,7 @@ app.post('/users/:userId/applications', applicationsCtrl.createApplication) // p
 app.get('/users/:userId/applications', applicationsCtrl.index) // view all the applications
 app.get('/users/:userId/applications/:applicationId', applicationsCtrl.show) // show details of one application
 app.delete('/users/:userId/applications/:applicationId', applicationsCtrl.deleteApplication)
+app.get('/users/:userId/applications/:applicationId/edit', ) // view an edit form
 
 // app.get('/vip-lounge', isSignedIn, vipCtrl.welcome)
 
